@@ -139,6 +139,9 @@ body {
     .hex:nth-child(9n+8) {
         margin-right: 1%;
     }
+    .hide1 {
+      display:none;
+    }
 }
 @media (max-width: 1200px) and (min-width:901px) {/* <- 4-3  hexagons per row */
     .hex {
@@ -174,6 +177,9 @@ body {
         clear: left;
         margin-left: 0.5%;
     }
+    .hide2 {
+      display:none;
+    }
 }
 @media (max-width: 900px) and (min-width:601px) { /* <- 3-2  hexagons per row */
     .hex {
@@ -203,6 +209,9 @@ body {
     .hex:nth-child(5n+6) {
         clear: left;
     }
+    .hide3 {
+      display:none;
+    }
 }
 @media (max-width: 600px) { /* <- 2-1  hexagons per row */
     .hex {
@@ -228,9 +237,16 @@ body {
     .hex:nth-child(3n+4) {
         clear: left;
     }
+    .hide4 {
+      display:none;
+    }
 }
 @media (max-width: 400px) {
     #hexGrid {
         font-size: 13px;
     }
+    .hide5 {
+      display:none;
+    }
 }
+
