@@ -106,5 +106,50 @@
                 </a>
             </li>
         </ul>
+
+		<script src="enquire.min.js"></script>
+		<script>
+// delete unwanted hexagons
+var thin = function(cls) {
+		var duds = document.getElementsByClassName(cls);
+		for (var i = duds.length - 1; 0 <= i; i--) {
+			var dud = duds[i];
+			if (!dud || !dud.parentNode) continue;
+			dud.parentNode.removeChild(dud);
+		}
+	};
+
+// recreate the deleted hexagons
+var fat = function(cls, suf) {
+ 		var itm = document.getElementById("blank");
+
+ 		for (var n=1; n<=suf; n++) {
+			var pres = document.getElementsByClassName(cls+n);
+			for (var i = pres.length - 1; 0 <= i; i--) {
+				var pre = pres[i];
+				if (!pre) continue;
+				// add mid/sm class first
+				var blank = itm.cloneNode(true);
+				blank.className += " " + cls;
+				pre.parentNode.insertBefore(blank, pre);
+			}
+		}
+		// check if we overdid it (mostly for testing purposes — happens on transition back to 100%, but could also on orientation change)
+		var count = document.getElementsByClassName(cls);
+		var exp = { "mid":7, "sm":3 };
+		if (count.length > exp[cls]) window.location.reload(false);
+};
+
+enquire.register("screen and (max-width: 1200px) and (min-width:901px)", {
+	// triggered when a media query matches
+	match : function() { thin("mid"); },      
+	unmatch : function() { fat("mid", 2);	},    
+	deferSetup : true,    
+}).register("(max-width: 900px) and (min-width:601px), (max-width: 600px), (max-width: 400px)", {
+	match : function() { thin("mid"); thin("sm"); },      
+	unmatch : function() { fat("mid", 2); fat("sm", 2);	},    
+	deferSetup : true,    
+});
+		</script>
     </body>
 </html>
