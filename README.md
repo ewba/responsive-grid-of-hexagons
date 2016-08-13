@@ -1,3 +1,18 @@
+# Notes from lynx
+
+The original notes can be found below. This fork, besides changing the content and
+getting rid of the hover effects (can't work on touch devices anyway), adds adaptive
+removal and readdition of (empty) hexes depending on viewport size. Empty hexes are
+those with just an image outline, since we wanted to preserve the visual of a
+honeycomb.
+
+First empty hex is present in all scenarios and is used as the source. "mid" and "sm"
+classes mark which hexes to remove in which viewports (for us two was enough).
+Their suffixed variants dictate the count of hexes to add and are placed on the
+content hexes that never disappear.
+
+Yes, I know, the formatting is not ideal and the approach not particularly general.
+
 #CSS and HTML responsive grid of hexagons.
 
 **[View live demo](http://web-tiki.github.io/responsive-grid-of-hexagons/)**
