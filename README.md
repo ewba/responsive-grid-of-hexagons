@@ -13,6 +13,8 @@ content hexes that never disappear.
 
 Yes, I know, the formatting is not ideal and the approach not particularly general.
 
+**[LIVE SITE](https://ebm.si/zw/intro)**
+
 #CSS and HTML responsive grid of hexagons.
 
 **[View live demo](http://web-tiki.github.io/responsive-grid-of-hexagons/)**
